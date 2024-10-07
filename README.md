@@ -38,4 +38,5 @@ There is authorization based on roles -
 ADMIN is able to perform all operations on the `/species` route while
 USER can only read this data.
 
-
+##### Local development (without docker)
+Make sure to use local properties file. To do it set env variable `SPRING_PROFILES_ACTIVE` to `local`
