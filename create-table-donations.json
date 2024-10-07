@@ -1,0 +1,28 @@
+{
+  "TableName": "donations",
+  "KeySchema": [
+    { "AttributeName": "userId", "KeyType": "HASH" },
+    { "AttributeName": "donationId", "KeyType": "RANGE" }
+  ],
+  "AttributeDefinitions": [
+    { "AttributeName": "userId", "AttributeType": "S" },
+    { "AttributeName": "donationId", "AttributeType": "S" },
+    { "AttributeName": "species", "AttributeType": "S" }
+  ],
+  "LocalSecondaryIndexes": [
+    {
+      "IndexName": "speciesIndex",
+      "KeySchema": [
+        { "AttributeName": "userId", "KeyType": "HASH" },
+        { "AttributeName": "species", "KeyType": "RANGE" }
+      ],
+      "Projection": {
+        "ProjectionType": "ALL"
+      }
+    }
+  ],
+  "ProvisionedThroughput": {
+    "ReadCapacityUnits": 5,
+    "WriteCapacityUnits": 5
+  }
+}
